@@ -112,7 +112,7 @@ class _StopwatchAppState extends State<StopwatchApp> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   FlatButton(
-                      onPressed: (){},
+                      onPressed: reset,
                       child: Container(
                         height: 100,
                         width: 100,
@@ -133,7 +133,9 @@ class _StopwatchAppState extends State<StopwatchApp> {
                       )
                   ),
                   FlatButton(
-                      onPressed: (){},
+                      onPressed: (){
+                        stopwatch.isRunning ? stop() : start();
+                      },
                       child: Container(
                         height: 100,
                         width: 100,
@@ -150,7 +152,7 @@ class _StopwatchAppState extends State<StopwatchApp> {
                                   color: Colors.white.withOpacity(0.85),
                                   blurRadius: 15)
                             ]),
-                        child: Icon(Icons.play_arrow, size: 60),
+                        child: Icon(stopwatch.isRunning ? Icons.pause : Icons.play_arrow, size: 60),
                       )
                   )
                 ],
